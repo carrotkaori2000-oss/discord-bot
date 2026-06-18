@@ -81,24 +81,24 @@ class Feature2(Cog_Extension):
                 "[Taylor Swift — Cruel Summer](https://www.youtube.com/watch?v=ic8j13piAhQ)"
             ],
             "心動": [
-                "[JVKE — golden hour](https://www.youtube.com/watch?v=Pem1u8GgG6w)",
+                "[JVKE — golden hour](https://www.youtube.com/watch?v=PEM0Vs8jf1w)",
                 "[Charlie Puth — Left and Right (feat. Jung Kook)](https://www.youtube.com/watch?v=a7GITgqwDVg)"
             ],
             "思念": [
-                "[Peder Elias — Loving You Girl](https://www.youtube.com/watch?v=by3yRdlQvzs)",
+                "[Peder Elias — Loving You Girl](https://www.youtube.com/watch?v=uZbB9DssRlA)",
                 "[Shawn Mendes — Treat You Better](https://www.youtube.com/watch?v=lY2yjAdbvdQ)"
             ],
             "失落": [
-                "[Sombr — back to friends](https://www.youtube.com/watch?v=Yf1eNWe0fEM)",
-                "[Olivia Rodrigo — drivers license](https://www.youtube.com/watch?v=ZmDBpeDNnNJ)"
+                "[Sombr — back to friends](https://www.youtube.com/watch?v=c8zq4kAn_O0)",
+                "[Olivia Rodrigo — drivers license](https://www.youtube.com/watch?v=ZmDBbnmKpqQ)"
             ],
             "希望": [
                 "[Ed Sheeran — Castle on the Hill](https://www.youtube.com/watch?v=K0ibBPhiaG0)",
-                "[Justin Bieber — Holy](https://www.youtube.com/watch?v=pvPsJFRGleA)"
+                "[Justin Bieber — Holy (feat. Chance The Rapper)](https://www.youtube.com/watch?v=pvPsJFRGleA)"
             ],
             "深夜獨處": [
                 "[Billie Eilish — ocean eyes](https://www.youtube.com/watch?v=viimfQi_pUw)",
-                "[Sombr — undressed](https://www.youtube.com/watch?v=gT8BfGstXis)"
+                "[Sombr — undressed](https://www.youtube.com/watch?v=CtRn6eqVnvY)"
             ],
             "通勤路上": [
                 "[Lauv — Paris in the Rain](https://www.youtube.com/watch?v=kOCkne-Bku4)",
@@ -106,29 +106,29 @@ class Feature2(Cog_Extension):
             ],
             "讀書／寫作業": [
                 "[Ed Sheeran — Thinking Out Loud](https://www.youtube.com/watch?v=lp-EO5I60KA)",
-                "[Lauv — Breathe](https://www.youtube.com/watch?v=7zVp97SgG68)"
+                "[Lauv — Breathe](https://www.youtube.com/watch?v=Tkc_9OPC20E)"
             ],
             "運動熱血": [
                 "[Taylor Swift — ...Ready For It?](https://www.youtube.com/watch?v=wIft-t-MQuE)",
                 "[Bruno Mars & Mark Ronson — Uptown Funk](https://www.youtube.com/watch?v=OPf0YbXqDm0)"
             ],
             "放空療癒": [
-                "[JVKE — this is what falling in love feels like](https://www.youtube.com/watch?v=A8vN67Vb_kU)",
-                "[Peder Elias — Paper Plane](https://www.youtube.com/watch?v=m1wXsh2P7B4)"
+                "[JVKE — this is what falling in love feels like](https://www.youtube.com/watch?v=BOyO8sZOaOQ)",
+                "[Peder Elias — Paper Plane](https://www.youtube.com/watch?v=YbqZsvWC2lU)"
             ]
         }
 
         # ==================== 第二部分：每日純享好歌推薦（共 10 首） ====================
         self.daily_pool = [
-            "[1. Lauv — Modern Loneliness](https://www.youtube.com/watch?v=vv-8vKCHmF0)",
-            "[2. JVKE — i can't help it](https://www.youtube.com/watch?v=D-aV5vWz9yM)",
-            "[3. Olivia Rodrigo — vampire](https://www.youtube.com/watch?v=RlPNh_PB6Bk)",
-            "[4. Billie Eilish — L'AMOUR DE MA VIE](https://www.youtube.com/watch?v=8M6pE_t_tms)",
-            "[5. Peder Elias — MS. SEROTONIN](https://www.youtube.com/watch?v=jW018i769kE)",
-            "[6. Taylor Swift — Style](https://www.youtube.com/watch?v=BFfdq7S0uRE)",
-            "[7. Ed Sheeran — Bloodstream](https://www.youtube.com/watch?v=Orq_7wS9MOM)",
-            "[8. Justin Bieber — Die For You (feat. Dominic Fike)](https://www.youtube.com/watch?v=C7D_6pZ8Gpk)",
-            "[9. Charlie Puth — Loser](https://www.youtube.com/watch?v=70f7fMAnp_M)",
+            "[1. Lauv — Modern Loneliness](https://www.youtube.com/watch?v=bDidwMxir4o)",
+            "[2. JVKE — i can't help it](https://www.youtube.com/watch?v=PFiynNbmeLI)",
+            "[3. Olivia Rodrigo — vampire](https://www.youtube.com/watch?v=RlPNh_PBZb4)",
+            "[4. Billie Eilish — L'AMOUR DE MA VIE](https://www.youtube.com/watch?v=GLpdY-57Dro)",
+            "[5. Peder Elias — MS. SEROTONIN](https://www.youtube.com/watch?v=XpeGw8MDMcI)",
+            "[6. Taylor Swift — Style](https://www.youtube.com/watch?v=-CmadmM5cOk)",
+            "[7. Ed Sheeran — Bloodstream](https://www.youtube.com/watch?v=XIJHg1XWR7o)",
+            "[8. The Weeknd & Ariana Grande — Die For You](https://www.youtube.com/watch?v=YQ-qToZUybM)",
+            "[9. Charlie Puth — Loser](https://www.youtube.com/watch?v=Sp6BS-rSr98)",
             "[10. Drake — Passionfruit](https://www.youtube.com/watch?v=COz9lDCFHjw)"
         ]
 
@@ -139,20 +139,20 @@ class Feature2(Cog_Extension):
                 "[Shawn Mendes — There's Nothing Holdin' Me Back](https://www.youtube.com/watch?v=dT2owtxkU8k)"
             ],
             "搖滾": [
-                "[Olivia Rodrigo — brutal](https://www.youtube.com/watch?v=OGUX0A0Q9mE)",
-                "[Billie Eilish — Happier Than Ever](https://www.youtube.com/watch?v=5GJWxDKykBY)"
+                "[Olivia Rodrigo — brutal](https://www.youtube.com/watch?v=OGUy2UmRxJ0)",
+                "[Billie Eilish — Happier Than Ever](https://www.youtube.com/watch?v=5GJWxDKyk3A)"
             ],
             "嘻哈／饒舌": [
                 "[Drake — God's Plan](https://www.youtube.com/watch?v=xpVfcZ0ZcFM)",
-                "[Justin Bieber — As Long As You Love Me (feat. Big Sean)](https://www.youtube.com/watch?v=R4em3LKQCAY)"
+                "[Drake — One Dance (feat. Wizkid & Kyla)](https://www.youtube.com/watch?v=ki0Ocze98U8&list=RDki0Ocze98U8&start_radio=1)"
             ],
             "節奏藍調": [
                 "[Bruno Mars — That's What I Like](https://www.youtube.com/watch?v=PMivT7MJ41M)",
-                "[Charlie Puth — We Don't Talk Anymore (feat. Selena Gomez)](https://www.youtube.com/watch?v=3AtDnEC4zak)"
+                "[Bruno Mars — Versace on the Floor](https://www.youtube.com/watch?v=-FyjEnoIgTM)"
             ],
             "電子音樂": [
-                "[Lauv — I Like Me Better](https://www.youtube.com/watch?v=BcqxLCb7dKU)",
-                "[Justin Bieber — What Do You Mean?](https://www.youtube.com/watch?v=DK_00HDNFcY)"
+                "[Lauv — I Like Me Better](https://www.youtube.com/watch?v=a7fzkqLozwA)",
+                "[Charlie Puth — Attention](https://www.youtube.com/watch?v=nfs8NYg7yQM)"
             ],
             "民謠": [
                 "[Ed Sheeran — The A Team](https://www.youtube.com/watch?v=UAWcs5H-qgQ)",
@@ -160,19 +160,19 @@ class Feature2(Cog_Extension):
             ],
             "鄉村音樂": [
                 "[Taylor Swift — Love Story](https://www.youtube.com/watch?v=8xg3vE8Ie_E)",
-                "[Ed Sheeran — Galway Girl](https://www.youtube.com/watch?v=nkqVm5aiC28)"
+                "[Taylor Swift — Our Song](https://www.youtube.com/watch?v=Jb2stN7kH28)"
             ],
             "爵士": [
-                "[Bruno Mars — Smokin Out The Window (as Silk Sonic)](https://www.youtube.com/watch?v=GG7fLOmlhYg)",
+                "[Silk Sonic — Smokin Out The Window](https://www.youtube.com/watch?v=GG7fLOmlhYg)",
                 "[Billie Eilish — my future](https://www.youtube.com/watch?v=Dm9Zf1WYQ_A)"
             ],
             "交響改編 / 浪漫弦樂": [
-                "[JVKE — this is what falling in love feels like (Orchestral Version)](https://www.youtube.com/watch?v=34gLg9O-Wv0)",
-                "[Taylor Swift — Lover (First Dance Remix)](https://www.youtube.com/watch?v=686A_7DscX0)"
+                "[Ed Sheeran — Perfect Symphony](https://www.youtube.com/watch?v=eiDiKwbGfIY)",
+                "[Taylor Swift — Lover ](https://www.youtube.com/watch?v=-BjZmE2gtdo)"
             ],
             "獨立音樂": [
-                "[Sombr — Caroline](https://www.youtube.com/watch?v=nE-k39vI5K4)",
-                "[Peder Elias — Best Friend](https://www.youtube.com/watch?v=O1m_wE66Z8A)"
+                "[Peder Elias — Row Your Boat](https://www.youtube.com/watch?v=ynQ6bEnewu0)",
+                "[Peder Elias — Bonfire](https://www.youtube.com/watch?v=A1DFnqzF8-o)"
             ]
         }
 
