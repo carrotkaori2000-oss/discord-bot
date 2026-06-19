@@ -17,6 +17,8 @@ class Scheduler(Cog_Extension):
         self.todo_list = self.load_todo_list()
     def load_todo_list(self):
         if not os.path.exists("todo_list.json"):
+            with open("todo_list.json", "w", encoding="utf-8") as f:
+                json.dump([], f)
             return []
         try:
             with open("todo_list.json", "r", encoding="utf-8") as f:

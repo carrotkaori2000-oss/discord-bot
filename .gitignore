@@ -9,3 +9,4 @@ cmds/__pycache__/
 *.exe
 
 .claude/
+todo_list.json

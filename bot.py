@@ -53,6 +53,13 @@ async def introduction(ctx, function_name: str = None):
                        "- 列出Todo List：$show\n"
                        "- 清空Todo List：$clear_list\n"
                        "祝你有個美好的體驗✨")
+    elif function_name == "gemini":
+        await ctx.send("# 🌐Google GEMINI 功能說明\n"
+                       "## 特別功能\n"
+                       "- ⛈️天氣查詢\n"
+                       "輸入 $weather <城市> 即可查詢城市天氣資訊！\n"
+                       "- 📝整理大綱\n"
+                       "輸入 $outline <文章> 就可以得到一份整理好的大鋼！\n")
 
 if  __name__ == "__main__":
     bot.run(os.getenv('TOKEN'))
