@@ -105,64 +105,8 @@ class Scheduler(Cog_Extension):
         await ctx.send("以上是目前的代辦事項!")
         
 
-    # def __init__(self, *args):
-    #     super().__init__(*args)
-        
-    #     '''
-    #     TODO
-    #     初始化 TodoList.
-    #     '''
+
 
 async def setup(bot):
     await bot.add_cog(Scheduler(bot))
 
-# import discord
-# from discord.ext import commands
-# from core import Cog_Extension
-
-# class Scheduler(Cog_Extension):
-#     @commands.command(name="add")
-#     async def AddTodoList(self, ctx, *args):
-#         print("【超強硬測試】終端機終於看到我了！")
-#         await ctx.send("系統大門正式被你打破了！")
-
-# async def setup(bot):
-#     await bot.add_cog(Scheduler(bot))
-
-
-# import discord
-# from discord.ext import commands
-# from core import Cog_Extension
-# import datetime
-
-# class Task():
-#     def __init__(self, name: str, description: str, deadline: datetime.datetime):
-#         self.name = name
-#         self.deadline = deadline
-#         self.description = description
-
-# class Scheduler(Cog_Extension):
-#     def __init__(self, bot):
-#         super().__init__(bot)
-#         self.todo_list = []
-
-#     @commands.command(name="AddTodoList", aliases=["add"])
-#     async def AddTodoList(self, ctx, name: str, description: str, date: str, deadline: str):
-#         print("👉 【太感動了】終於成功跑進全新的程式碼裡了！")
-        
-#         try:
-            
-#             deadline_object = datetime.datetime.strptime(f"{date} {deadline}", "%Y-%m-%d %H:%M")
-#         except ValueError as e:
-#             await ctx.send("❌ 錯誤日期格式！範例：2025-05-18 23:59")
-#             return
-
-#         if not any(task.name == name for task in self.todo_list):
-#             new_task = Task(name, description, deadline_object)
-#             self.todo_list.append(new_task)
-#             await ctx.send(f"✅ 已新增 Todo List：**{name}**")
-#         else:
-#             await ctx.send("⚠️ 已經有這個項目了喔！")
-
-# async def setup(bot):
-#     await bot.add_cog(Scheduler(bot))
