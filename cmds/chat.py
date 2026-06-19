@@ -14,10 +14,13 @@ def get_current_temperature(location: str) -> dict:
     Returns:
         A dictionary containing the location and the current temperature, e.g. {"location": "Taipei", "temperature": "33.5°C"}
     """
-    # TODO: call a real weather API here
-    return {"location": location, "temperature": "33.5°C"}
+    
 
 class Chat(Cog_Extension):
+    def __init__(self, bot):
+        super().__init__(bot)
+        self.client = genai.Client()
+        self.config = types.GenerateContentConfig(tools=[get_current_temperature])
 
     @commands.command()
     async def hey(self, ctx, *args):
@@ -30,6 +33,14 @@ class Chat(Cog_Extension):
             self.chat.send_message,
             prompt
         )
+        async with ctx.typing():
+            response = await asyncio.to_thread(
+                self.client.models.generate_content,
+                model = "gemini-3.5-flash",
+                contents = prompt,
+                config = self.config,
+            )
+
         await ctx.send(response.text)
 
     @commands.command()

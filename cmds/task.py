@@ -44,7 +44,7 @@ class Scheduler(Cog_Extension):
     
 
 
-    @commands.command(name="AddTodoList", aliases=["add"])
+    @commands.command(name = "add")
     async def AddTodoList(self, ctx, *args):
         print("收到了!")
    
@@ -97,7 +97,7 @@ class Scheduler(Cog_Extension):
             return
             
         sorted_list = sorted(self.todo_list, key = lambda task: task.deadline)
-        reply_message = "# 目前的代辦事項清單：\n"
+        reply_message = "# 📑目前的代辦事項清單：\n"
         for index, task in enumerate(sorted_list, start = 1):
             time_str = task.deadline.strftime("%Y-%m-%d %H:%M")
             reply_message += f"{index}. **{task.name}** - {task.description} 截止時間：{time_str}\n"

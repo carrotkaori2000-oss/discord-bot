@@ -47,12 +47,12 @@ async def introduction(ctx, function_name: str = None):
         return
     function_name = function_name.lower()
     if function_name == "todolist":
-        await ctx.send("# Todo List 功能說明\n"
+        await ctx.send("# 🌐Todo List 功能說明\n"
                        "- 新增Todo List：$add <事項名稱> <詳細資訊> 2025-05-18 23:59\n"
                        "- 移除Todo List：$remove <事項名稱>\n"
                        "- 列出Todo List：$show\n"
                        "- 清空Todo List：$clear_list\n"
-                       "祝你有個美好的體驗~")
+                       "祝你有個美好的體驗✨")
 
 if  __name__ == "__main__":
     bot.run(os.getenv('TOKEN'))
