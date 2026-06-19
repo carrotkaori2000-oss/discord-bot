@@ -113,7 +113,7 @@ class Chat(Cog_Extension):
             report_chat = self.client.chats.create(
                 model="gemini-2.5-flash",
                 config=types.GenerateContentConfig(
-                    system_instruction="請根據提供的 OpenWeatherMap JSON 數據，轉換成一份格式非常精美、條理分明的繁體中文（台灣）天氣報告。必須包含：目前氣溫、體感溫度、天氣狀況、濕度、風向風速。請用漂亮的 markdown 粗體與適當的Emoji 排版(不要太多)。"
+                    system_instruction="請根據提供的 OpenWeatherMap JSON 數據，轉換成一份格式非常精美、條理分明的繁體中文（台灣）天氣報告。必須包含：目前氣溫、體感溫度、天氣狀況、濕度、風向風速。請用漂亮的 markdown 粗體與適當的Emoji 排版(不要太多)。不用加前言之類的，直接輸出報告。"
                 )
             )
             final_report = await asyncio.to_thread(report_chat.send_message, weather_info_str)
