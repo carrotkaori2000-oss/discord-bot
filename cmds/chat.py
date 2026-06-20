@@ -45,9 +45,9 @@ def generate_text_outline(text: str) -> dict:
 
 
 class Chat(Cog_Extension):
-    def __init__(self, bot):
-        super().__init__(bot)
-        self.client = genai.Client()
+    def __init__(self, *args):
+        super().__init__(*args)
+        self.client = genai.Client(api_key = os.getenv("GOOGLE_API_KEY"))
         self.config = types.GenerateContentConfig(tools=[get_current_temperature, generate_text_outline])
 
     @commands.command()
@@ -57,11 +57,15 @@ class Chat(Cog_Extension):
             return
 
         prompt = ''.join(args)
-        ai_chat = self.client.chats.create(model="gemini-2.5-flash",
-                                        config = self.config)
-        response = await asyncio.to_thread(ai_chat.send_message, prompt)
-
-        await ctx.send(response.text)
+        try:
+            ai_chat = self.client.chats.create(model="gemini-2.5-flash",config = self.config)
+            response = await asyncio.to_thread(ai_chat.send_message, prompt)
+            await ctx.send(response.text)
+        except Exception as e:
+            if "429" in str(e) or "exhausted" in str(e).lower():
+                await ctx.send("請稍等一分鐘再試！")
+            else:
+                await ctx.send(f"發生錯誤:{e}")
 
     @commands.command()
     async def clear(self, ctx):

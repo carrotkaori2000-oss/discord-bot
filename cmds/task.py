@@ -85,7 +85,7 @@ class Scheduler(Cog_Extension):
 
         if task_to_remove is not None:
             self.todo_list.remove(task_to_remove)
-            self.save_todo_list
+            self.save_todo_list()
             await ctx.send(f"已移除**{task_name}**!")
         else:
             await ctx.send(f"找不到名為**{task_name}**的事項喔!")
