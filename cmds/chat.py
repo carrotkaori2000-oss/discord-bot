@@ -50,6 +50,7 @@ class Chat(Cog_Extension):
         self.client = genai.Client(api_key = os.getenv("GOOGLE_API_KEY"))
         self.config = types.GenerateContentConfig(tools=[get_current_temperature, generate_text_outline])
         self._init_chat()
+        self.chat_sessions = {}
 
     @commands.command()
     async def hey(self, ctx, *, prompt: str = ""):
@@ -58,9 +59,14 @@ class Chat(Cog_Extension):
             return
 
         try:
-            ai_chat = self.client.chats.create(model="gemini-2.5-flash",config = self.config)
-            response = await asyncio.to_thread(ai_chat.send_message, prompt)
+            channel_id = ctx.channel.id
+            
+            if channel_id not in self.chat_sessions:
+                self.chat_sessions[channel_id] = self.client.chats.create(model = "gemini-2.5-flash", config = self.config)
+            current_chat = self.chat_sessions[channel_id]
+            response = await asyncio.to_thread(current_chat.send_message, prompt)
             await ctx.send(response.text)
+
         except Exception as e:
             if "429" in str(e) or "exhausted" in str(e).lower():
                 await ctx.send("請稍等一分鐘再試！")
