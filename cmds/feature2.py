@@ -3,7 +3,6 @@ from discord.ext import commands
 from core import Cog_Extension
 import random
 
-# ==================== 指令一的下拉選單介面 ====================
 class SituationSelect(discord.ui.Select):
     def __init__(self, pool):
         self.pool = pool
@@ -23,7 +22,6 @@ class SituationSelect(discord.ui.Select):
 
     async def callback(self, interaction: discord.Interaction):
         selected = self.values[0]
-        # 從該分類的 2 首歌曲中，隨機二選一抽出「一首」
         random_song = random.choice(self.pool[selected])
         
         embed = discord.Embed(
@@ -32,11 +30,8 @@ class SituationSelect(discord.ui.Select):
             color=discord.Color.blue()
         )
         embed.add_field(name="🔗 點擊歌名直接前往 YouTube", value=f"🎶 {random_song}", inline=False)
-        
-        # 移除選單，只顯示最終美觀的結果
         await interaction.response.edit_message(embed=embed, view=None)
 
-# ==================== 指令三的下拉選單介面 ====================
 class GenreSelect(discord.ui.Select):
     def __init__(self, pool):
         self.pool = pool
@@ -56,7 +51,6 @@ class GenreSelect(discord.ui.Select):
 
     async def callback(self, interaction: discord.Interaction):
         selected = self.values[0]
-        # 從該曲風的 2 首歌曲中，隨機二選一抽出「一首」
         random_song = random.choice(self.pool[selected])
         
         embed = discord.Embed(
@@ -66,15 +60,12 @@ class GenreSelect(discord.ui.Select):
         )
         embed.add_field(name="🔗 點擊歌名直接前往 YouTube", value=f"🎤 {random_song}", inline=False)
         
-        # 移除選單，只顯示最終美觀的結果
         await interaction.response.edit_message(embed=embed, view=None)
 
-# ==================== 主 Cog 類別 ====================
 class Feature2(Cog_Extension):
     def __init__(self, bot):
         super().__init__(bot)
-        
-        # ==================== 第一部分：心情與狀態（10個分類 × 2首 = 共 20 首） ====================
+
         self.mood_situation_pool = {
             "喜悅": [
                 "[Bruno Mars — 24K Magic](https://www.youtube.com/watch?v=UqyT8IEBkvY)",
@@ -118,7 +109,6 @@ class Feature2(Cog_Extension):
             ]
         }
 
-        # ==================== 第二部分：每日純享好歌推薦（共 10 首） ====================
         self.daily_pool = [
             "[1. Lauv — Modern Loneliness](https://www.youtube.com/watch?v=bDidwMxir4o)",
             "[2. JVKE — i can't help it](https://www.youtube.com/watch?v=PFiynNbmeLI)",
@@ -132,7 +122,6 @@ class Feature2(Cog_Extension):
             "[10. Drake — Passionfruit](https://www.youtube.com/watch?v=COz9lDCFHjw)"
         ]
 
-        # ==================== 第三部分：曲風推薦（10種曲風 × 2首 = 共 20 首） ====================
         self.genre_pool = {
             "流行": [
                 "[Charlie Puth — Light Switch](https://www.youtube.com/watch?v=WFsAon_TWPQ)",
@@ -176,7 +165,6 @@ class Feature2(Cog_Extension):
             ]
         }
 
-    # ==================== 指令一：情境點歌（選狀態再二選一） ====================
     @commands.command(name="推薦情境")
     async def mood_recommend(self, ctx):
         """跳出下拉選單供使用者選擇情境，並從中二選一推薦歌曲"""
@@ -191,7 +179,6 @@ class Feature2(Cog_Extension):
         
         await ctx.send(embed=embed, view=view)
 
-    # ==================== 指令二：每日推薦（維持盲抽多取一） ====================
     @commands.command(name="每日推薦")
     async def daily_recommend(self, ctx):
         """從 10 首每日推薦中隨機盲抽一首"""
@@ -207,7 +194,6 @@ class Feature2(Cog_Extension):
         
         await ctx.send(embed=embed)
 
-    # ==================== 指令三：曲風推薦（選曲風再二選一） ====================
     @commands.command(name="推薦曲風")
     async def genre_recommend(self, ctx):
         """跳出下拉選單供使用者選擇曲風，並從中二選一推薦歌曲"""
@@ -216,12 +202,10 @@ class Feature2(Cog_Extension):
             description="請從下方下拉選單中選擇你想探索的音樂風格類型：",
             color=discord.Color.purple()
         )
-        # 建立帶有下拉選單的 View
         view = discord.ui.View(timeout=60)
         view.add_item(GenreSelect(self.genre_pool))
         
         await ctx.send(embed=embed, view=view)
 
-# 載入 Cog
 async def setup(bot):
     await bot.add_cog(Feature2(bot))
