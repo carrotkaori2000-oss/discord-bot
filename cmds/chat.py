@@ -49,14 +49,14 @@ class Chat(Cog_Extension):
         super().__init__(*args)
         self.client = genai.Client(api_key = os.getenv("GOOGLE_API_KEY"))
         self.config = types.GenerateContentConfig(tools=[get_current_temperature, generate_text_outline])
+        self._init_chat()
 
     @commands.command()
-    async def hey(self, ctx, *args):
-        if len(args) == 0:
+    async def hey(self, ctx, *, prompt: str = ""):
+        if not prompt.strip():
             await ctx.send("不合法的用法: 用法: hey <prompt>")
             return
 
-        prompt = ''.join(args)
         try:
             ai_chat = self.client.chats.create(model="gemini-2.5-flash",config = self.config)
             response = await asyncio.to_thread(ai_chat.send_message, prompt)
@@ -126,13 +126,7 @@ class Chat(Cog_Extension):
         except Exception as e:
             await ctx.send(f"暫時無法取得天氣資料，錯誤原因：{e}")
     def _init_chat(self):
-        config = types.GenerateContentConfig(tools=[get_current_temperature])
-        self.chat = self.client.chats.create(model="gemini-3.1-flash-lite-preview", config=config)
-
-    def __init__(self, *args):
-        super().__init__(*args)
-        self.client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
-        self._init_chat()
+        self.chat = self.client.chats.create(model="gemini-2.5-flash", config=self.config)
 
 async def setup(bot):
     await bot.add_cog(Chat(bot))
