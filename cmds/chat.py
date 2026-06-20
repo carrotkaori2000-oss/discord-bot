@@ -16,7 +16,7 @@ def get_current_temperature(location: str) -> dict:
         A dictionary containing the location and the current temperature
     """
     location = location.lower().strip()
-    api_key = "a17ce2fdde1582270d05de8cb68aca60"
+    api_key = os.getenv("WEATHER_API_KEY")
     url = f"https://api.openweathermap.org/data/2.5/weather?q={location}&appid={api_key}&units=metric"
 
     try:
