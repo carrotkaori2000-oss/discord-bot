@@ -66,24 +66,29 @@ class Scheduler(Cog_Extension):
             await ctx.send("輸入格式錯誤!範例：$add <事項名稱> <詳細資訊> 2025-05-18 23:59")
             return
     @commands.command(name = "remove")
-    async def RemoveTodoList(self, ctx, *args):
-        if len(args) != 1:
+    async def RemoveTodoList(self, ctx, *, task_name: str = None):
+        if not task_name:
             await ctx.send("不合法的用法: 用法: $remove <事項名稱>")
             return
-        else:
-            name = args[0]
-            task_to_remove = None
-            for task in self.todo_list:
-                if task.name == name:
-                    task_to_remove = task
-                    break
+       
+        task_to_remove = None
+        for task in self.todo_list:
+            current_name = ""
+            if hasattr(task, 'name'):
+                current_name = str(task.name).strip()
+            elif isinstance(task, dict) and "name" in  task:
+                current_name =  str(task["name"]).strip()
+
+            if current_name == task_name.strip():
+                task_to_remove = task
+                break
 
         if task_to_remove is not None:
             self.todo_list.remove(task_to_remove)
             self.save_todo_list
-            await ctx.send(f"已移除**{name}**!")
+            await ctx.send(f"已移除**{task_name}**!")
         else:
-            await ctx.send(f"找不到名為**{name}**的事項喔!")
+            await ctx.send(f"找不到名為**{task_name}**的事項喔!")
 
 
     @commands.command(name = "clear_list")

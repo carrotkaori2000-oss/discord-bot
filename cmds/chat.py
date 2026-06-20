@@ -57,15 +57,14 @@ class Chat(Cog_Extension):
             return
 
         prompt = ''.join(args)
-        chat = self.client.chats.create(model="gemini-2.5-flash",
+        ai_chat = self.client.chats.create(model="gemini-2.5-flash",
                                         config = self.config)
-        response = await asyncio.to_thread(chat.send_message, prompt)
+        response = await asyncio.to_thread(ai_chat.send_message, prompt)
 
         await ctx.send(response.text)
 
     @commands.command()
     async def clear(self, ctx):
-        self._init_chat()
         await ctx.send("對話已重置")
     @commands.command(name = "outline")
     async def outline(self, ctx, *, content: str):
@@ -74,13 +73,13 @@ class Chat(Cog_Extension):
         
         await ctx.send("⏳ **正在為您閱讀文章並生成大綱，請稍候...**")
 
-        chat = self.client.chats.create(
+        ai_chat = self.client.chats.create(
             model="gemini-2.5-flash",
             config=types.GenerateContentConfig(
                 system_instruction="請一律使用繁體中文（台灣），並根據使用者提供的文字，生成一個結構清晰、排版精美的3點式項目符號重點大綱，包含主要概念、關鍵細節與結論。"
             )
         )
-        response = await asyncio.to_thread(chat.send_message, content)
+        response = await asyncio.to_thread(ai_chat.send_message, content)
         await ctx.send(f"# 📋大綱：\n{response.text}")
 
     @commands.command(name="weather")
